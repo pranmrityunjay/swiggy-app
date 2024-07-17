@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
- import "./index.css";
 import App from "./App.js";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, BrowserRouter } from "react-router-dom";
 import About from "./Components/About.js";
-// import Error from './Error.js';
 import Body from "./Components/Body.js";
-import Restaurants from "./Restaurants.js";
+import Restaurants from "./Components/Restaurants.js";
 import Contact from "./Components/Contact.js";
-// import Grocery from './Components/Grocery';
 import { lazy, Suspense } from "react";
 import Cart from "./Components/Cart.js";
 
@@ -17,7 +14,6 @@ const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    //    errorElement:<Error/>
     children: [
       {
         path: "/",

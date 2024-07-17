@@ -1,7 +1,7 @@
 import logoImage from "./logo1.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "./useOnlineStatus";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 import { useContext } from "react";
 import UserContext from "./createContext";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,9 +11,7 @@ const Header = () => {
   const [ans, loginLogOut] = useState("login");
   const isOnline = useOnlineStatus();
   const data = useContext(UserContext);
-  //subscribing to the store using a selector
   const cartItems = useSelector((store) => store.cart.items);
-
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg">
       <div>
@@ -26,7 +24,6 @@ const Header = () => {
           <li className="px-4">
             <Link to="/">Home</Link>
           </li>
-          {/* <li><a href="/">Home</a></li>  */}
 
           <li className="px-4">
             <Link to="/About">About</Link>

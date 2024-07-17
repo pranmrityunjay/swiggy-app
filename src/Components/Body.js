@@ -1,7 +1,7 @@
 import { resObj,SmallCards,WithLevelData} from "./Constants";
 import { useState, useEffect, useContext } from "react";
 import Seamer from "./Seamer";
-import useOnlineStatus from "./useOnlineStatus";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 import { Link } from "react-router-dom";
 import UserContext from "./createContext";
 import User from "./User";
@@ -37,9 +37,6 @@ const Body = () => {
   }
   return (
     <div>
-      {/* <input className="Enter your username" placeholder="ok"  onChange={(E)=>{
-        i=E.target.placeholder;
-      }}></input>  */}
       <div className="flex items-center">
         <input
           className="border-2 border-solid border-black mx-2 p-1 text-base "
@@ -48,7 +45,6 @@ const Body = () => {
             setNewText(e.target.value);
           }}
         />
-
         <button
           className="bg-green-300 p-1 rounded-sm"
           onClick={() => {
@@ -63,7 +59,6 @@ const Body = () => {
         >
           Search
         </button>
-
         <button
           className="m-4 bg- py-1 px-4 rounded-sm mx-16 bg-red-500"
           onClick={() => {
@@ -75,14 +70,12 @@ const Body = () => {
         >
           Top rated restaurant
         </button>
-
         <input
           className="border border-solid border-black mx-8 p-1 text-base"
           value={loggedInUser}
           onChange={(e) => changeContextName(e.target.value)}
         ></input>
       </div>
-
       <div className="flex flex-wrap">
         {newResObj.map((temp) => (
           <Link key={temp.info.id} to={"/restaurants/" + temp.info.id}>

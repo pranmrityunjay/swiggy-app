@@ -1,4 +1,3 @@
-
 const Grocery=()=>{
     return (
         <h1>this is a grocery Store where you can buy Grocery

@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 const useFindTheData=(resId)=>{
     const[newList,changeList]=useState(null);
+    
      useEffect(()=>{
         fetchApi();
      },[])

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import Seamer from "./Components/Seamer";
+import Seamer from "./Seamer";
 import { useParams } from "react-router-dom";
-import useFindTheData from "./Components/useFindTheData";
-import RestaurantInside from "./Components/RestaurantInside";
+import useFindTheData from "../hooks/useFindTheData";
+import RestaurantInside from "./RestaurantInside";
 
 const Restaurants = () => {
   const [newList, changeList] = useState(null);
@@ -20,12 +20,10 @@ const Restaurants = () => {
         "&catalog_qa=undefined&submitAction=ENTER#"
     );
     const json = await responce.json();
-    // https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.61610&lng=73.72860&restaurantId=9174&catalog_qa=undefined&submitAction=ENTER#
     changeList(
       json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
         .carousel
     );
-
     const categories =
       json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter(
         (c) =>
@@ -41,7 +39,6 @@ const Restaurants = () => {
     <div>
       <h1 className="text-center">Resturant Name</h1>
       <h3 className="text-center">Menu items</h3>
-
       <ul>
         {newList.map((obj) => (
           <li className="text-center" key={obj.dish.info.id}>
@@ -53,7 +50,6 @@ const Restaurants = () => {
           </li>
         ))}
       </ul>
-
       {newItem.map((temp, i) => (
         <RestaurantInside
           key={i}
