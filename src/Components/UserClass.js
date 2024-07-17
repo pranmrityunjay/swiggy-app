@@ -21,7 +21,7 @@ class UserClass extends React.Component {
   async componentDidMount(prevProps, prevState) {
     // if(prevProps!=prevState)
 
-    console.log("componentDidMountain");
+    // console.log("componentDidMountain");
 
     const responce = await fetch("https://api.github.com/users/pranmrityunjay");
     const data = await responce.json();
@@ -37,7 +37,7 @@ class UserClass extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log("Disappear");
+    // console.log("Disappear");
   }
 
   render() {

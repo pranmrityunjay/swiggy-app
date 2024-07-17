@@ -1,10 +1,8 @@
-import { resObj } from "./Constants";
-import { SmallCards } from "./Constants";
+import { resObj,SmallCards,WithLevelData} from "./Constants";
 import { useState, useEffect, useContext } from "react";
 import Seamer from "./Seamer";
 import useOnlineStatus from "./useOnlineStatus";
 import { Link } from "react-router-dom";
-import { WithLevelData } from "./Constants";
 import UserContext from "./createContext";
 import User from "./User";
 
@@ -38,13 +36,13 @@ const Body = () => {
     return <Seamer />;
   }
   return (
-    <div className="Body">
+    <div>
       {/* <input className="Enter your username" placeholder="ok"  onChange={(E)=>{
         i=E.target.placeholder;
       }}></input>  */}
       <div className="flex items-center">
         <input
-          className="border border-solid border-black mx-2 p-1 text-base "
+          className="border-2 border-solid border-black mx-2 p-1 text-base "
           placeholder="Search.."
           onChange={(e) => {
             setNewText(e.target.value);

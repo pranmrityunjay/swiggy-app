@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+ import "./index.css";
 import App from "./App.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./Components/About.js";
@@ -29,7 +29,7 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element: <Restaurants />,
+        element: <Restaurants/>,
       },
       {
         path: "/Contact",

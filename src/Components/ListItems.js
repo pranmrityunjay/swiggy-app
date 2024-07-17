@@ -1,12 +1,10 @@
 import { useDispatch } from "react-redux";
 import { addItem } from "./cartSlice";
-
 const ListItems = ({ props }) => {
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
     dispatch(addItem(item));
-  };
-
+};
   return (
     <div>
       {props.map((temp) => (
@@ -35,7 +33,7 @@ const ListItems = ({ props }) => {
             <img
               className="w-full bg-white"
               src={
-                "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
                 temp.card.info.imageId
               }
               alt=""
@@ -46,5 +44,4 @@ const ListItems = ({ props }) => {
     </div>
   );
 };
-
 export default ListItems;

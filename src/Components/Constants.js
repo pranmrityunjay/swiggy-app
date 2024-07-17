@@ -670,6 +670,8 @@ export const resObj = [
 
 export const SmallCards = (props) => {
   const { resData } = props;
+  // console.log(resData.info.cloudinaryImageId
+  // );
   const data = useContext(UserContext);
   return (
     <div
@@ -680,7 +682,7 @@ export const SmallCards = (props) => {
         <img
           className="imgCard rounded-lg"
           src={
-            "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
             resData.info.cloudinaryImageId
           }
           alt=""
@@ -714,8 +716,10 @@ export const WithLevelData = (SmallCards) => {
   };
 };
 
+// console.log("container outside")
 export const Container = () => {
-  const [contextName, changeContextName] = useState("This is Context");
+   const [contextName, changeContextName] = useState("This is Context");
+  // console.log("Container")
 
   // key={temp.info.id} resData={temp}
 

@@ -5,7 +5,7 @@ const User = ({ Name }) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log("This is setInverval");
+      // console.log("This is setInverval");
     }, 1000);
 
     return () => {
