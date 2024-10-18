@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Seamer from "./Seamer";
 import { useParams } from "react-router-dom";
-import useFindTheData from "../hooks/useFindTheData";
 import RestaurantInside from "./RestaurantInside";
 
 const Restaurants = () => {
@@ -9,55 +8,64 @@ const Restaurants = () => {
   const { resId } = useParams();
   const [newItem, changeItem] = useState([]);
   const [showIndex, changeShowIndex] = useState(null);
+  
   useEffect(() => {
     fetchApi();
   }, []);
 
   const fetchApi = async () => {
-    const responce = await fetch(
+    const response = await fetch(
       "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.61610&lng=73.72860&restaurantId=" +
         resId +
         "&catalog_qa=undefined&submitAction=ENTER#"
     );
-    const json = await responce.json();
+    const json = await response.json();
     changeList(
-      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
-        .carousel
+      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.carousel
     );
-    const categories =
-      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter(
-        (c) =>
-          c.card?.card?.["@type"] ==
-          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-      );
+    const categories = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter(
+      (c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
     changeItem(categories);
   };
 
   if (newList == null) return <Seamer />;
+  
   return (
-    <div>
-      <h1 className="text-center">Resturant Name</h1>
-      <h3 className="text-center">Menu items</h3>
-      <ul>
+    <div className="p-4">
+      <h1 className="text-center text-3xl font-bold mb-4">Restaurant Name</h1>
+      <h3 className="text-center text-xl mb-2">Menu Items</h3>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
         {newList.map((obj) => (
-          <li className="text-center" key={obj.dish.info.id}>
-            {obj.dish.info.name +
-              " " +
-              "price" +
-              " " +
-              obj.dish.info.price / 100}
+          <div className="bg-white rounded-lg shadow-lg p-4" key={obj.dish.info.id}>
+            <h4 className="font-semibold text-lg">{obj.dish.info.name}</h4>
+            <p className="text-gray-700">Price: ₹{(obj.dish.info.price / 100).toFixed(2)}</p>
+          </div>
+        ))}
+      </div>
+
+      <h3 className="text-center text-xl mb-2">Categories</h3>
+      <ul className="space-y-2">
+        {newItem.map((temp, i) => (
+          <li key={i} className="border-b border-gray-300 pb-2">
+            <button
+              className="text-left w-full py-2 px-4 bg-gray-100 hover:bg-gray-200 rounded-md"
+              onClick={() => changeShowIndex(i === showIndex ? null : i)}
+            >
+              {temp.card.card.title} ({temp.card.card.itemCount}) {showIndex === i ? "🔽" : "🔼"}
+            </button>
+            {i === showIndex && (
+              <RestaurantInside
+                data={temp.card.card}
+                showItems={true}
+                changeShowIndex={() => changeShowIndex(i)}
+              />
+            )}
           </li>
         ))}
       </ul>
-      {newItem.map((temp, i) => (
-        <RestaurantInside
-          key={i}
-          data={temp.card.card}
-          showItems={i == showIndex}
-          changeShowIndex={() => changeShowIndex(i)}
-        />
-      ))}
     </div>
   );
 };
