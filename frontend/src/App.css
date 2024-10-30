@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .logo{
+
+  width:85px;
+  
+
+}
+
+.header{
+  display:flex;
+  justify-content: space-between;
+  border:1px solid black;
+  margin:10px;
+}
+
+.navBar ul{
+  display:flex;
+  margin-right:30px;
+  list-style-type: none;
+  
+ 
+}
+
+.navBar ul li {
+  font-size: 20px;
+  margin-left: 100px;
+ 
+ 
+}
+
+.imgCard{
+  width:230px;
+  height:200px;
+  padding-left: 0.8px;
+}
+
+
+.cards{
+  border:1px solid black;
+  margin:10px;
+   display:flex;
+   flex-wrap:wrap;  
+  
+}
+
+.card{
+  height:450px;
+  width:230px; 
+  padding:5px;
+  
+  margin-left:10px;
+  margin-top: 10px;
+  background-color: rgb(182, 189, 189);
+ 
+
+
+  
+}
+
+.card:hover{
+  cursor:pointer;
+  border:2.5px solid rgb(238, 219, 44);
+
+  border-radius: 5px;
+}
+
+
+
+.child{
+  height:250px;
+  width:200px;
+  border:1px solid black;
+  background-color:rgb(215, 214, 214);
+  margin:2px;
+}
+.Duplicate {
+  height:900px;
+  width:850px;
+  padding:20px; 
+  display:flex;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+
+
+
+  
+
+}
+.user-name{
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.user-Name{
+  border: 1px solid black;
+  margin: 10px;
+
+}
+
+
+
+
+
+
+
+ */
+
+
