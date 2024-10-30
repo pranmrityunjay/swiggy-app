@@ -83,7 +83,7 @@ const Body = () => {
             className="bg-red-500 text-white p-2 px-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300"
             onClick={handleClearSearch}
           >
-            Clear
+            Clear Cart
           </button>
         </div>
 
